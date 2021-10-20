@@ -63,12 +63,7 @@ CREATE TABLE IF NOT EXISTS `AppMedico`.`Paciente` (
   `Materno` VARCHAR(45) NOT NULL,
   `Edad` INT NOT NULL,
   `Genero` VARCHAR(1) NOT NULL,
-  `Correo` VARCHAR(30) NULL,
-  `Telefono` VARCHAR(10) NOT NULL,
-  `Edad` INT NOT NULL,
-  `Direccion` VARCHAR(50) NOT NULL,
-  `Estado` VARCHAR(30) NOT NULL,
-  `Ciudad` INT NOT NULL,
+  `Fecha de nacimiento` DATE NOT NULL,
   `IdExpediente` INT NOT NULL,
   PRIMARY KEY (`IdPaciente`, `IdExpediente`),
   CONSTRAINT `fk_Paciente_Expediente`
