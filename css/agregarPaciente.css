@@ -1,0 +1,26 @@
+#registroPaciente{
+    width: 80%;
+    margin-left:10%;
+    margin-right: auto;
+}
+
+#registroPaciente input{
+    text-align: center;
+    height: 35px;
+}
+#registroPaciente label{
+    color: black;
+    font-size: 14px;
+    height: 35;
+    align-content: center;
+    padding-top: 50%;
+}
+.contenedorForm{
+    width: 60%;
+    margin: 0 20% 0 20%;
+    padding: 15px;
+    border:1px solid white;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px black;
+}

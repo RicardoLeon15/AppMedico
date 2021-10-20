@@ -1,0 +1,49 @@
+body{background-color: #f2f2f2;}
+.logo{
+    background-color: #012e46;
+    margin-left: 5%;}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;}
+nav{
+    background-color: #012e46;
+    padding:0 5% 0 5%;}
+.login{
+    top: 50%;
+    width: 30%;
+    height: 450px;
+    padding: 10px;
+    margin-left: 35%;
+    margin-right: auto;
+    position: absolute;
+    transform: translateY(-50%)
+}
+.loginCard{
+    position: relative;
+    width: 300px;
+    top: 50%;
+    height: 400px;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 10px gray;
+    background-color: #fff;
+}
+#formIniciarSesion{padding: 15px;}
+#formIniciarSesion input{
+    border:1px solid black;
+    border-radius: 10px;
+    margin: 1 auto;
+    text-align: center;
+}
+button{
+    width: 100%;
+    height: 50px;
+}
+label{
+    color:black;
+    font-size: 14px;
+}
