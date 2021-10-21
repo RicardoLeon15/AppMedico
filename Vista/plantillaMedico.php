@@ -54,7 +54,8 @@
             <a href="#" class="brand-logo logo">Logo</a>
                 <ul id="nav-mobile menu" class="right hide-on-med-and-down">
                     <li><a href="">Perfil</a></li>
-                    <li><a href="">Lista pacientes</a></li>
+                    <li><a href="listaPacientes.php">Lista pacientes</a></li>
+                    <li><a href="agregarPaciente.php">Agregar pacientes</a></li>
                     <li><a href="">Acerca de</a></li>
                 </ul>
         </div>
