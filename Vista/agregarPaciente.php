@@ -1,7 +1,21 @@
 <?php
     /**Incluimos la plantilla medico donde almacenamos el navar y el footer*/
-    include '../plantilla/plantillaMedico.php';
-    function section(){
+    require_once 'plantillaMedico.php';
+
+    class agregarPaciente extends Vista{
+
+        public function __construct()
+        {
+          $this->encabezado();
+          $this->menu();
+          $this->contenido();
+          $this->footer();
+        }
+        public function terminarControlador(){}
+        public function notificar(){}
+        public function suscribir(){}
+
+        public function contenido(){
 ?>
 
     <style>
@@ -104,5 +118,11 @@
         </form>
     </div>
 <?php
+        }
     }
+
+    /**Cargamos el objeto ---Modificar posteriormente
+     * para que el controlador lo cree
+    */
+    $ap=new agregarPaciente();
 ?>
