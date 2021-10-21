@@ -86,6 +86,8 @@
         <header class="row">
             <!--En esta sección va el logo-->
             <div class="logo col s3">
+            <a href="#" ><img src="../logoAM.png"width="200" 
+     height="65"></a>
             </div>
         </header>
         <br><br>
@@ -99,8 +101,8 @@
                     </div>
                 </li>
                 <label style="color:white;  font-size: 14px;">Usuario</label>
-                <li><a href="#news">Agregar paciente</a></li>
-                <li><a href="#contact">Lista paciente</a></li>
+                <li><a href="agregarPaciente.php">Agregar paciente</a></li>
+                <li><a href="listaPacientes.php">Lista paciente</a></li>
                 <li><a href="#about">Acerca de</a></li>
             </ul>
           </div>
