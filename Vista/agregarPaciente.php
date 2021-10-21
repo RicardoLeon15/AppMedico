@@ -37,6 +37,10 @@
             align-content: center;
             padding-top: 50%;
         }
+        .contenedorFormulario{
+            width: 85%;
+            margin-left:15%;
+        }
         .contenedorForm{
             width: 60%;
             margin: 0 20% 0 20%;
@@ -52,7 +56,8 @@
 
     <br><br>
     
-<div class="contenedorForm row">
+    <div class="contenedorFormulario">
+    <div class="contenedorForm row">
          <h4 class="center-align">Registrar paciente</h4>
         <hr>
 
@@ -117,6 +122,9 @@
             <input type="submit" value="Registrar" class="col s3 offset-s1">
         </form>
     </div>
+    </div>
+
+    
 <?php
         }
     }
