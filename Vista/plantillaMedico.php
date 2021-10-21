@@ -25,18 +25,51 @@
 
 
             <style>
-                .logo{
-                    background-color: #012e46;
-                    margin-left: 5%;}
-                nav{
-                    background-color: #012e46;
-                    padding:0 5% 0 5%;
+                header{
+                    background: #012e46;
+                    width: 100%;
+                    height: 60px;
+                    position: fixed;
                 }
-                footer{
+                .corpyright{
                     position: relative;
                     bottom: 0;
-                    width: 100%;
+                    width: 85%;
+                    margin-left: 15%;
+                    color: black;
+                    border-top: 1px solid gray;
+                }
+
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    width: 15%;
+                    position: fixed;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: #02152b;
+                    text-align: center;
+
+                }
+
+                li a {
+                    display: block;
+                    margin: 5px 5px 5px 5px;
+                    padding: 8px 16px;
+                    text-decoration: none;
                     color: white;
+                    background-color: #012e46;
+
+                }
+
+                /* Change the link color on hover */
+                li a:hover {
+                    background-color: #012e46;
+                }
+                .menuContenedor{
+                    position: absolute;
+                    top:60px;
                 }
             </style>
 
@@ -49,17 +82,28 @@
 
 ?>
         <!--Generamos nuestra barra de menu-->
-      <nav>
-        <div class="nav-wrapper menu">
-                        <a href="#" ><img src="../logoAM.png"width="200" height="65"></a>
-                <ul id="nav-mobile menu" class="right hide-on-med-and-down">
-                    <li><a href="">Perfil</a></li>
-                    <li><a href="listaPacientes.php">Lista pacientes</a></li>
-                    <li><a href="agregarPaciente.php">Agregar pacientes</a></li>
-                    <li><a href="">Acerca de</a></li>
-                </ul>
-        </div>
-      </nav>
+      
+        <header class="row">
+            <!--En esta sección va el logo-->
+            <div class="logo col s3">
+            </div>
+        </header>
+        <br><br>
+        <div class="menuContenedor">
+            <ul> <br>
+                <li>
+                    <div class="user-view">
+                        <div class="circle">
+                            <img src="../Imagenes/medico.png" alt="Perfil">
+                        </div>
+                    </div>
+                </li>
+                <label style="color:white;  font-size: 14px;">Usuario</label>
+                <li><a href="#news">Agregar paciente</a></li>
+                <li><a href="#contact">Lista paciente</a></li>
+                <li><a href="#about">Acerca de</a></li>
+            </ul>
+          </div>
 <?php
         }
         public function contenido(){}
@@ -67,15 +111,13 @@
 ?>
     <!--Generamos el footer--> 
         <br></br>
-        <footer class="page-footer" style="background-color: #012e46">
-              <div class="footer-copyright">
+        <footer>
+              <div class="corpyright">
                 <div class="container" style="text-align:center;">
                 © 2021 appMedica, todos los derechos reservados
                 </div>
             </div>
-            </footer>
-            
-
+            </footer> 
     </body>
     </html>
 <?php

@@ -1,59 +1,63 @@
 body{
     background-color: #f2f2f2;
 }
-.contenedorTabla{
-    width: 80%;
-    margin: 0 10% 0 10%;
-    padding: 15px;
-    border:1px solid white;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 1px 1px 1px black;
-  }
+/*Representa al contenedor principal*/
+.contenedorLista{
+  width: 85%;
+  margin-left: 15%;
+}
 
-  #buscadorNombre, #buscadorFecha{
-        color:black;
-        font-size: 14px;
-        background-color:white;
-        height: 35px;
-        padding: 5px 0 5px 0;
-        border: 1px solid black;
-        border-radius: 10px;
-    }
+#contTituloLista, #conTablaLista{
+  width: 90%;
+  margin: 0px 5% 0 5%;
+  padding: 2px 20px 2px;
+  border:1px solid white;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px black;
+}
 
-    #buscadorNombre{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
-    #buscadorNombre:focus-within{box-shadow:5px 5px 5px grey;}
+#buscadorNombre, #buscadorFecha{
+  color:black;
+  font-size: 14px;
+  background-color:white;
+  height: 35px;
+  padding: 5px 0 5px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+}
 
-    #buscadorFecha{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
-    #buscadorFecha:focus-within{box-shadow:5px 5px 5px grey;}
+#buscadorNombre{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
+#buscadorNombre:focus-within{box-shadow:5px 5px 5px grey;}
 
-    #buscarNombre{
-      width: 90%;
-      height: 30px;
-      border: none;
-    }
-    #buscarFecha{
-      width:100%;
-      height: 30px;
-      border:none;
-    }
+#buscadorFecha{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
+#buscadorFecha:focus-within{box-shadow:5px 5px 5px grey;}
+
+#buscarNombre{
+  width: 90%;
+  height: 30px;
+  border: none;
+}
+#buscarFecha{
+  width:100%;
+  height: 30px;
+  border:none;
+}
     
-    /*-------Tabla de pacientes-------*/
 
-    #tPacientes{
-        font-family: Arial, Helvetica, sans-serif;
-    }
+#tPacientes{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    #tPacientes th{
-        width: 20%;
-        background-color:#012e46;
-        color:#fff;
-    }
-    #tPacientes td{
-        border-bottom: 1px solid black;
-        width: 20%;
-    }
+#tPacientes th{
+    width: 20%;
+    background-color:#012e46;
+    color:#fff;
+}
+#tPacientes td{
+    border-bottom: 1px solid black;
+    width: 20%;
+}
 
-    #tPacientes tr:nth-child(even){background-color: #e8f5ff;}
-    #tPacientes tr:hover {background-color: #c3e3fd;}
-
+#tPacientes tr:nth-child(even){background-color: #e8f5ff;}
+#tPacientes tr:hover {background-color: #c3e3fd;}
