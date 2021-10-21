@@ -103,8 +103,7 @@
                 <li><a href="#contact">Lista paciente</a></li>
                 <li><a href="#about">Acerca de</a></li>
             </ul>
-
-        </div>
+          </div>
 <?php
         }
         public function contenido(){}
