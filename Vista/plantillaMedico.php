@@ -51,7 +51,7 @@
         <!--Generamos nuestra barra de menu-->
       <nav>
         <div class="nav-wrapper menu">
-            <a href="#" class="brand-logo logo">Logo</a>
+                        <a href="#" ><img src="../logoAM.png"width="200" height="65"></a>
                 <ul id="nav-mobile menu" class="right hide-on-med-and-down">
                     <li><a href="">Perfil</a></li>
                     <li><a href="listaPacientes.php">Lista pacientes</a></li>
