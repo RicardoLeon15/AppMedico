@@ -50,14 +50,24 @@ body{
 }
 
 #tPacientes th{
-    width: 20%;
+    width: 15%;
     background-color:#012e46;
     color:#fff;
 }
 #tPacientes td{
     border-bottom: 1px solid black;
-    width: 20%;
+    width: 15%;
 }
 
 #tPacientes tr:nth-child(even){background-color: #e8f5ff;}
 #tPacientes tr:hover {background-color: #c3e3fd;}
+
+#btnEditar{
+  width: 100px;
+  height: 30px;
+}
+
+#btnExpediente{
+  width: 100px;
+  height: 30px;
+}

@@ -1,21 +1,25 @@
-#registroPaciente{
+#registroPacienteAP{
     width: 80%;
     margin-left:10%;
     margin-right: auto;
 }
 
-#registroPaciente input{
+#registroPacienteAP input{
     text-align: center;
     height: 35px;
 }
-#registroPaciente label{
+#registroPacienteAP label{
     color: black;
     font-size: 14px;
     height: 35;
     align-content: center;
     padding-top: 50%;
 }
-.contenedorForm{
+.contenedorFormularioAP{
+    width: 85%;
+    margin-left:15%;
+}
+.contenedorFormAP{
     width: 60%;
     margin: 0 20% 0 20%;
     padding: 15px;

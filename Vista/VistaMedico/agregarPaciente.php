@@ -18,71 +18,36 @@
         public function contenido(){
 ?>
 
-    <style>
-        
-        #registroPaciente{
-            width: 80%;
-            margin-left:10%;
-            margin-right: auto;
-        }
-
-        #registroPaciente input{
-            text-align: center;
-            height: 35px;
-        }
-        #registroPaciente label{
-            color: black;
-            font-size: 14px;
-            height: 35;
-            align-content: center;
-            padding-top: 50%;
-        }
-        .contenedorFormulario{
-            width: 85%;
-            margin-left:15%;
-        }
-        .contenedorForm{
-            width: 60%;
-            margin: 0 20% 0 20%;
-            padding: 15px;
-            border:1px solid white;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 1px 1px 1px black;
-        }
-
-
-    </style>
-
     <br><br>
     
-    <div class="contenedorFormulario">
-    <div class="contenedorForm row">
-         <h4 class="center-align">Registrar paciente</h4>
+    <div class="contenedorFormularioAP">
+    <div class="contenedorFormAP row">
+         <h5 class="center-align">Registrar paciente</h5>
         <hr>
 
-        <form id="registroPaciente">
+        <form id="registroPacienteAP">
             
             <div class="col s5 push-s7">
-                     <label for="fechaRegitro">Fecha de registro:</label>
-                     <input type="date" placeholder="dd/mm/aa" id=fechaRegitro>
+                     <label for="fRP">Fecha de registro:</label>
+                     <input type="date" placeholder="dd/mm/aa" id="fRP" name="fRegistroP">
             </div>
 
-            <input type="text" id="fname" name="firstname" placeholder="Ingrese nombre...">
-            <input class="col s5" type="text" id="lname" name="lastname" placeholder="Ingrese apellido paterno...">
-            <input class="col s5 offset-s2" type="text" id="lname" name="lastname" placeholder="Ingrese apellido materno...">
+            <p class="col s12">Datos generales</p>
+            <input type="text" id="nombreP" name="NombreP" placeholder="Ingrese nombre...">
+            <input class="col s5" type="text" id="aPaternoP" name="ApellidoPaternoP" placeholder="Ingrese apellido paterno...">
+            <input class="col s5 offset-s2" type="text" id="aMaternoM" name="ApellidoMaternoP" placeholder="Ingrese apellido materno...">
             
             
             <!--Ajuste de la edad y fechaNacimiento-->
                 
             <div class="row">
                 <div class="col s5 push-s7">
-                     <label for="fechaNacimiento">Fecha de nacimiento:</label>
-                     <input type="date" placeholder="dd/mm/aa" id=fechaNacimiento>
+                     <label for="fNP">Fecha de nacimiento:</label>
+                     <input type="date" placeholder="dd/mm/aa" id="fNP" name="fNacimientoP">
                 </div>
                 <div class="col s4 pull-s5">
                 <label for="edad">Edad:</label>
-                    <input type="number" min=0 max=100 id="edad">      
+                    <input type="number" min=0 max=100 id="edad" name="Edad">      
                 </div>
            </div>
 
@@ -105,21 +70,21 @@
 
             <!---Sección del expediente medico-->
             <p class="col s12">Diagnostico</p>
-            <textarea name="diagnostico" style="height:50px;">
+            <textarea id="diagnostico" name="Diagnostico" style="height:50px;">
             </textarea> 
 
             <p class="col s12">Sintomas</p>
-            <textarea name="diagnostico" style="height:100px;">
+            <textarea id="sintomas" name="Sintomas" style="height:100px;">
             </textarea> 
 
             <p class="col s12">Receta</p>
-            <textarea name="receta" style="height:100px;">
+            <textarea id="receta" name="Receta" style="height:100px;">
             </textarea> 
             <br><br>
             <!----------------------------------->
 
-            <input type="submit" value="Cancelar" class="col s3 offset-s5">
-            <input type="submit" value="Registrar" class="col s3 offset-s1">
+            <input type="submit" value="Cancelar" class="col s3 offset-s5" id="cancelarAP" name="cancelarPaciente">
+            <input type="submit" value="Registrar" class="col s3 offset-s1" id="registrarAP" name="registrarPaciente">
         </form>
     </div>
     </div>
