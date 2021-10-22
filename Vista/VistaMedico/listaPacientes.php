@@ -18,7 +18,7 @@
     
         public function contenido(){
 ?>
-
+    
     <!--Agregamos la tabla con los registros de los pacientes-->
     <br><br>
     <div class="contenedorLista">
@@ -50,6 +50,7 @@
               <th>Apellido paterno</th>
               <th>Genero</th>
               <th>Fecha registros</th>
+              <th colspan="2">Acciones</th>
             </tr>
           </thead>
         
@@ -60,13 +61,8 @@
               <td>Ramírez</td>
               <td>M</td>
               <td>18/10/2021</td>
-            </tr>
-            <tr>
-              <td>11228284</td>
-              <td>Genaro</td>
-              <td>Ramírez</td>
-              <td>M</td>
-              <td>18/10/2021</td>
+              <td><a href="datosPaciente.php"><input type="button" value="Editar" id="btnEditar"></a></td>
+              <td><input type="button" value="PDF" id="btnExpediente"></td>
             </tr>
           </tbody>
       </table>

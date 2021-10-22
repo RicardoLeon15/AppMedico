@@ -11,19 +11,35 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/login.css">
 
+    <style>
+        .logoLogin {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body{
+            background-image: url(../Imagenes/fondoLogin.jpeg);
+            background-repeat:no-repeat;
+            background-position-x:center;
+            background-position-y:center;
+        }
+
+    </style>
 </head>
 <body>
     <!--Generamos nuestra barra de menu-->
     <nav>
-      <div class="nav-wrapper menu">
-          <a href="#" class="brand-logo logo">Logo</a>
-      </div>
+      <div class="nav-wrapper"></div>
     </nav>
     <br><br>
     
-    <div class="login">
-        <div class="loginCard">       
-            <br><br>     
+    <div class="login row">
+        <div class="loginCard">    
+            <br>
+            <div class="logoLogin col s12">
+                <img src="../logoAM.png" alt="Perfil" width="150px" height="60px">    
+            </div>   
+            <br><br><br>   
             <form action="" id="formIniciarSesion">
                 <label>Usuario</label>
                 <input type="text" id="usuario" name="Usuario">
