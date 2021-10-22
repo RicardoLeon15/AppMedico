@@ -87,9 +87,8 @@
         <header class="row">
             <!--En esta sección va el logo-->
             <div class="logo col s3">
-                <div class="circle">
-                    <img src="../../logoAM.png" alt="Perfil" width="150px" height="60px">
-                </div>
+                <a href="#" ><img src="../logoAM.png"width="200" 
+     height="65"></a>
             </div>
         </header>
         <br><br>
