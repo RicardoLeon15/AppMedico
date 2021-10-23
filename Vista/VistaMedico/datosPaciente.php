@@ -63,6 +63,23 @@ require_once 'plantillaMedico.php';
 				    <label for="femenino">F</label>
                 </div>
             </div>
+
+            <!---Sección del expediente medico-->
+            <p class="col s12">Datos clinicos</p>
+            <br>
+            <p class="col s12">Diagnostico</p>
+            <textarea id="diagnostico" name="Diagnostico" style="height:50px;">
+            </textarea> 
+
+            <p class="col s12">Sintomas</p>
+            <textarea id="sintomas" name="Sintomas" style="height:100px;">
+            </textarea> 
+
+            <p class="col s12">Receta</p>
+            <textarea id="receta" name="Receta" style="height:100px;">
+            </textarea> 
+            <br><br>
+            <!----------------------------------->
             <!----------------------------->
             <br><br>
             <input type="submit" value="Cancelar" class="col s3 offset-s5" id="cancelarAP" name="cancelarActualizacionP">

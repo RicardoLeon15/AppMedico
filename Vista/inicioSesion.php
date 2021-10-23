@@ -35,9 +35,8 @@
     
     <div class="login row">
         <div class="loginCard">    
-            <br>
             <div class="logoLogin col s12">
-                <img src="../logoAM.png" alt="Perfil" width="150px" height="60px">    
+                <img src="../logoLogin.jpeg" alt="Logo" width="140px" height="100px">    
             </div>   
             <br><br><br>   
             <form action="" id="formIniciarSesion">

@@ -78,5 +78,4 @@
     /**Cargamos el objeto ---Modificar posteriormente
      * para que el controlador lo cree
     */
-    $lP=new listaPacientes();
 ?>            

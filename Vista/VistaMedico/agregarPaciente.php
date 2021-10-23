@@ -97,5 +97,4 @@
     /**Cargamos el objeto ---Modificar posteriormente
      * para que el controlador lo cree
     */
-    $ap=new agregarPaciente();
 ?>

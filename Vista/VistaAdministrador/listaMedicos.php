@@ -1,12 +1,18 @@
 <?php
     /**Incluimos la plantilla medico donde almacenamos el navar y el footer*/
 
-    require_once 'plantillaAdministrador.php';
-
+include 'Modelo/ConexionBD.php';
+require_once 'plantillaAdministrador.php';
+require_once 'Modelo/Medico.php';
     class listaMedicos extends Vista{
+        
+        public $modelo;
+        public $lMedicos;
 
         public function __construct()
         {
+          $this->modelo=new MedicoDB();
+          $this->lMedicos=$this->modelo->mostrarMedicos();
           $this->encabezado();
           $this->menu();
           $this->contenido();
@@ -15,7 +21,7 @@
         public  function terminarControlador(){}
         public  function notificar(){}
         public  function suscribir(){}
-    
+
         public function contenido(){
 ?>
 
@@ -56,13 +62,18 @@
           </thead>
         
           <tbody>
-            <tr>
-              <td>11228284</td>
-              <td>Genaro</td>
-              <td>Ramírez</td>
-              <td>Santiago</td>
-              <td><input type="button" value="Eliminar"></td>
-            </tr>
+            <?php
+              /**En este segemento de codigo se cargan los datos del medico*/
+              foreach ($this->lMedicos as $valor) {
+                echo "<tr>";
+                  echo "<td>".$valor->getId()."</td>";
+                  echo "<td>".$valor->getNombre()."</td>";
+                  echo "<td>".$valor->getPaterno()."</td>";
+                  echo "<td>".$valor->getMaterno()."</td>";
+                  echo "<td><input type='button' value='Eliminar'></td>";
+                echo "</tr>";
+              }
+            ?>
           </tbody>
       </table>
       <!--------------------------------------------------------------------------------->
@@ -78,5 +89,4 @@
     /**Cargamos el objeto ---Modificar posteriormente
      * para que el controlador lo cree
     */
-    $lP=new listaMedicos();
 ?>            
