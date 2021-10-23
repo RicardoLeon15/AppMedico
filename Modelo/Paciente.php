@@ -8,7 +8,7 @@
         /**
          * @var string
          */
-        protected $idPaciente;
+        protected $IdPaciente;
         
         /**
          * @var string
@@ -44,5 +44,13 @@
          * @var Expediente
          */
         protected $Expediente;
+
+        /**
+        *
+        * @param string $IdPaciente
+        */
+        public function buscarPaciente($IdPaciente){
+            
+        }
     }
 ?>
