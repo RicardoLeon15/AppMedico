@@ -55,5 +55,21 @@ body{
     width: 20%;
 }
 
+.contenedorFormularioAP{
+  width: 85%;
+  margin-left:15%;
+}
+.contenedorFormAP{
+  width: 60%;
+  margin: 0 20% 0 20%;
+  padding: 15px;
+  border:1px solid white;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px black;
+}
+
+
+
 #tMedicos tr:nth-child(even){background-color: #e8f5ff;}
 #tMedicos tr:hover {background-color: #c3e3fd;}

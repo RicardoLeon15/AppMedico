@@ -54,6 +54,13 @@
 
                 }
 
+                .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
                 li a {
                     display: block;
                     margin: 5px 5px 5px 5px;

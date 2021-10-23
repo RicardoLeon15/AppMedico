@@ -23,7 +23,6 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="css/estilosAdministrador.css">
 
-
             <style>
                 header{
                     background: #012e46;
@@ -39,6 +38,12 @@
                     color: black;
                     border-top: 1px solid gray;
                 }
+                .center {
+                     display: block;
+                     margin-left: auto;
+                     margin-right: auto;
+                     width: 50%;
+}
 
                 ul {
                     list-style-type: none;
