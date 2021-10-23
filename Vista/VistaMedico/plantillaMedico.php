@@ -21,8 +21,8 @@
             <!-- Vinculamos los iconos-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../../css/listaPacientes.css?v=<?php echo time(); ?>">
-            <link rel="stylesheet" href="../../css/agregarPaciente.css?v=<?php echo time(); ?>">
+            <link rel="stylesheet" href="css/listaPacientes.css?v=<?php echo time(); ?>">
+            <link rel="stylesheet" href="css/agregarPaciente.css?v=<?php echo time(); ?>">
 
 
             <style>
@@ -79,6 +79,15 @@
                     position: absolute;
                     top:60px;
                 }
+                .logo{
+                    width: 15%;
+                    position: fixed;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                }
+                
             </style>
 
         </head>
@@ -93,9 +102,8 @@
       
         <header class="row">
             <!--En esta sección va el logo-->
-            <div class="logo col s3">
-                <a href="#" ><img src="../../Imagenes/logoAM.png"width="200" 
-     height="65"></a>
+            <div class="logo">
+                <a href="#" ><img src="logoAM.png"width="150" height="50"></a>
             </div>
         </header>
         <br><br>
@@ -104,14 +112,14 @@
                 <li>
                     <div class="user-view">
                         <div class="circle">
-                            <img src="../../Imagenes/medico.png" alt="Perfil">
+                            <img src="Imagenes/medico.png" alt="Perfil">
                         </div>
                     </div>
                 </li>
                 <label style="color:white;  font-size: 14px;">Usuario</label>
-                <li><a href="listaPacientes.php">Lista pacientes</a></li>
-                <li><a href="agregarPaciente.php">Agregar paciente</a></li>
-                <li><a href="acercaDe.php">Acerca de</a></li>
+                <li><a href="listaPacientes">Lista pacientes</a></li>
+                <li><a href="agregarPaciente">Agregar paciente</a></li>
+                <li><a href="#">Acerca de</a></li>
             </ul>
           </div>
 <?php

@@ -21,8 +21,7 @@
             <!-- Vinculamos los iconos-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../../css/estilosAdministrador.css?v=<?php echo time(); ?>">
-            
+            <link rel="stylesheet" href="css/estilosAdministrador.css">
 
             <style>
                 header{
@@ -77,6 +76,14 @@
                     position: absolute;
                     top:60px;
                 }
+                .logo{
+                    width: 15%;
+                    position: fixed;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                }
             </style>
 
         </head>
@@ -91,9 +98,9 @@
       
         <header class="row">
             <!--En esta sección va el logo-->
-            <div class="logo col s3">
+            <div class="logo">
                 <div class="circle">
-                    <img src="../../Imagenes/logoAM.png" alt="Perfil" width="150px" height="60px">
+                    <img src="logoAM.png" alt="Perfil" width="150px" height="50px">
                 </div>
             </div>
         </header>
@@ -103,14 +110,14 @@
                 <li>
                     <div class="user-view">
                         <div class="circle">
-                            <img src="../../Imagenes/medico.png" alt="Perfil">
+                            <img src="Imagenes/medico.png" alt="Perfil">
                         </div>
                     </div>
                 </li>
                 <label style="color:white;  font-size: 14px;">Usuario</label>
-                <li><a href="listaMedicos.php">Lista medicos</a></li>
-                <li><a href="agregarMedico.php">Registrar medico</a></li>
-                <li><a href="acercaDe.php">Acerca de</a></li>
+                <li><a href="listaMedicos">Lista medicos</a></li>
+                <li><a href="agregarMedico">Registrar medico</a></li>
+                <li><a href="#">Acerca de</a></li>
             </ul>
           </div>
 <?php
