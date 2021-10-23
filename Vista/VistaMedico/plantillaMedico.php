@@ -54,6 +54,13 @@
 
                 }
 
+                .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
                 li a {
                     display: block;
                     margin: 5px 5px 5px 5px;
@@ -87,7 +94,7 @@
         <header class="row">
             <!--En esta sección va el logo-->
             <div class="logo col s3">
-                <a href="#" ><img src="../logoAM.png"width="200" 
+                <a href="#" ><img src="../../Imagenes/logoAM.png"width="200" 
      height="65"></a>
             </div>
         </header>
@@ -104,7 +111,7 @@
                 <label style="color:white;  font-size: 14px;">Usuario</label>
                 <li><a href="listaPacientes.php">Lista pacientes</a></li>
                 <li><a href="agregarPaciente.php">Agregar paciente</a></li>
-                <li><a href="#">Acerca de</a></li>
+                <li><a href="acercaDe.php">Acerca de</a></li>
             </ul>
           </div>
 <?php
