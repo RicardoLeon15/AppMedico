@@ -50,7 +50,8 @@
         * @param string $IdPaciente
         */
         public function buscarPaciente($IdPaciente){
-            
+            require("ConexionBD.php");
+            $conexion = conexion();
         }
     }
 ?>
