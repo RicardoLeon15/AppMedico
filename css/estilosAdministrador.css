@@ -1,59 +1,58 @@
-/*ESTILOS PARA LA LISTA DE MEDICOS*/
+<?php
+    /**Incluimos la plantilla medico donde almacenamos el navar y el footer*/
 
-body{
-    background-color: #f2f2f2;
-}
-/*Representa al contenedor principal*/
-.contenedorLista{
-  width: 85%;
-  margin-left: 15%;
-}
+use agregarPaciente as GlobalAgregarPaciente;
 
-#contTituloLista, #conTablaLista{
-  width: 90%;
-  margin: 0px 5% 0 5%;
-  padding: 2px 20px 2px;
-  border:1px solid white;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 1px 1px 1px black;
-}
+require_once 'plantillaAdministrador.php';
 
-#buscadorNombre{
-  color:black;
-  font-size: 14px;
-  background-color:white;
-  height: 35px;
-  padding: 5px 0 5px 0;
-  border: 1px solid black;
-  border-radius: 10px;
-}
+    class datosPaciente extends Vista{
 
-#buscadorNombre{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
-#buscadorNombre:focus-within{box-shadow:5px 5px 5px grey;}
+        public function __construct()
+        {
+          $this->encabezado();
+          $this->menu();
+          $this->contenido();
+          $this->footer();
+        }
+        public function terminarControlador(){}
+        public function notificar(){}
+        public function suscribir(){}
 
-#buscadorFecha{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
-#buscadorFecha:focus-within{box-shadow:5px 5px 5px grey;}
+        public function contenido(){
+?>
+        <br><br>
+    
+    <div class="contenedorFormularioAP">
+    <div class="contenedorFormAP row">
+    <img src="../../Imagenes/logoAM2.png" class="center" alt="logo" height = 110 width = 230 >
+         <h5 class="center-align">Acerca de appMedica</h5>
 
-#buscarNombre{
-  width: 90%;
-  height: 30px;
-  border: none;
-}   
+        <p class = "center"> 
+            appMedica le permite a los doctores poder llevar<br>
+            un registro en linea de sus pacientes tomando en<br>
+            cuenta un registro de sus expedientes, tambien<br>
+            se les permite buscarlos por medio de sus nombres <br>
+            o por las fechas en las cuales fueron atendidos.<br><br>
 
-#tMedicos{
-    font-family: Arial, Helvetica, sans-serif;
-}
+        </p>
 
-#tMedicos th{
-    width: 20%;
-    background-color:#012e46;
-    color:#fff;
-}
-#tMedicos td{
-    border-bottom: 1px solid black;
-    width: 20%;
-}
+         <p class = "center"><b>Esta aplicación fue hecha por:</b><br><br>
+         Gutierrez Leon Ricardo<br>
+         Nuñez Grajales Erick<br>
+         Ramirez Santiago Genaro<br><br>
 
-#tMedicos tr:nth-child(even){background-color: #e8f5ff;}
-#tMedicos tr:hover {background-color: #c3e3fd;}
+         <b>Esta aplicacion fue hecha bajo <br>la supervisión del 
+         profesor : </b><br><br>Abraham Sanchez Lopez</p>
+
+
+
+ 
+    </div>
+    </div>
+
+<?php
+        }
+    }
+
+    $ap=new datosPaciente();
+?>
