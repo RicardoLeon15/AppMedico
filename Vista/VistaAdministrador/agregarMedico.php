@@ -58,7 +58,7 @@
             padding: 15px 30px 15px 30px;
             display:none;
         }
-        #registrarM,#eliminarM{
+        #registrarM{
             height: 30px;
             color:white;
             background-color: #012e46;
@@ -68,10 +68,7 @@
             background-color: #02152b;
             text-decoration:underline ;
         }
-        #eliminarM:hover{
-            background-color: #02152b;
-            text-decoration:underline ;
-        }
+        
     </style>
 
     <br><br>
@@ -110,7 +107,7 @@
                 var datos=$( "#registroMedico" ).serializeArray();
                 datos.push({name:"funcion",value:"registrar"});
                  $.ajax({
-                   url:"Controlador/controladorFuncionesM.php", 
+                   url:"Controlador/controladorFuncionesA.php", 
                    type: "POST",
                    data: datos,
                    success: function(result){

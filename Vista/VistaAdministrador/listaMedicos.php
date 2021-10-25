@@ -134,7 +134,7 @@ require_once 'Modelo/Medico.php';
       if (opcion==true) 
       {
         $.ajax({
-          url:"Controlador/controladorFuncionesM.php", 
+          url:"Controlador/controladorFuncionesA.php", 
           type: "POST",
           data:{
              funcion:"eliminar",

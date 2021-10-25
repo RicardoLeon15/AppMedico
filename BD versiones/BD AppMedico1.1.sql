@@ -36,7 +36,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `AppMedico`.`Expediente` ;
 
 CREATE TABLE IF NOT EXISTS `AppMedico`.`Expediente` (
-  `IdExpediente` INT NOT NULL AUTO_INCREMENT,
+  INT NOT NULL AUTO_INCREMENT,
   `Padecimiento` VARCHAR(45) NOT NULL,
   `Sintomas` TEXT(100) NOT NULL,
   `Ingreso` DATE NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `AppMedico`.`Paciente` (
   `Materno` VARCHAR(45) NOT NULL,
   `Edad` INT NOT NULL,
   `Genero` VARCHAR(1) NOT NULL,
-  `Fecha de nacimiento` DATE NOT NULL,
+  `FNacimiento` DATE NOT NULL,
   `IdExpediente` INT NOT NULL,
   PRIMARY KEY (`IdPaciente`, `IdExpediente`),
   CONSTRAINT `fk_Paciente_Expediente`
