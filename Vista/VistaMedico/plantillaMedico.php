@@ -103,7 +103,7 @@
         <header class="row">
             <!--En esta sección va el logo-->
             <div class="logo">
-                <a href="#" ><img src="logoAM.png"width="150" height="50"></a>
+                <a href="#" ><img src="Imagenes/logoAM.png"width="150" height="50"></a>
             </div>
         </header>
         <br><br>
@@ -119,7 +119,7 @@
                 <label style="color:white;  font-size: 14px;">Usuario</label>
                 <li><a href="listaPacientes">Lista pacientes</a></li>
                 <li><a href="agregarPaciente">Agregar paciente</a></li>
-                <li><a href="#">Acerca de</a></li>
+                <li><a href="acercaDeM">Acerca de</a></li>
             </ul>
           </div>
 <?php

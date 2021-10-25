@@ -1,11 +1,9 @@
 <?php
     /**Incluimos la plantilla medico donde almacenamos el navar y el footer*/
 
-use agregarPaciente as GlobalAgregarPaciente;
+require_once 'plantillaAdministrador.php';
 
-require_once 'plantillaMedico.php';
-
-    class datosPaciente extends Vista{
+    class AcercaDeA extends Vista{
 
         public function __construct()
         {
@@ -24,7 +22,7 @@ require_once 'plantillaMedico.php';
     
     <div class="contenedorFormularioAP">
     <div class="contenedorFormAP row">
-    <img src="../../Imagenes/logoAM2.png" class="center" alt="logo" height = 110 width = 230 >
+    <img src="Imagenes/logoAM2.png" class="center" alt="logo" height = 110 width = 230 >
          <h5 class="center-align">Acerca de appMedica</h5>
 
         <p class = "center"> 
@@ -43,16 +41,10 @@ require_once 'plantillaMedico.php';
 
          <b>Esta aplicacion fue hecha bajo <br>la supervisión del 
          profesor : </b><br><br>Abraham Sanchez Lopez</p>
-
-
-
- 
     </div>
     </div>
 
 <?php
         }
     }
-
-    $ap=new datosPaciente();
 ?>

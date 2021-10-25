@@ -1,6 +1,7 @@
 <?php
 require_once 'Vista/VistaMedico/agregarPaciente.php';
 require_once 'Vista/VistaMedico/listaPacientes.php';
+require_once 'Vista/VistaMedico/acercaDeM.php';
 
     class controladorPaciente{
         
@@ -11,7 +12,10 @@ require_once 'Vista/VistaMedico/listaPacientes.php';
             } 
             if(strcmp($url,"agregarPaciente")==0){
                 $aP=new agregarPaciente();
-            }       
+            } 
+            if(strcmp($url,"acercaDeM")==0){
+                $aP=new AcercaDeM();
+            }           
         }
     }
 ?>
