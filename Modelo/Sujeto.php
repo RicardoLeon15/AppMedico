@@ -1,6 +1,6 @@
 <?php
     namespace Modelo;
-    require_once 'Observer.class.php';
+    require_once 'Observer.php';
 
     abstract class Sujeto
     {
