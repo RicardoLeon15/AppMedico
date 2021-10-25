@@ -1,5 +1,5 @@
 <?php
-    namespace Modelo;
+use function Modelo\conexion;
 
     class Expediente{
         /**
