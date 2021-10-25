@@ -107,10 +107,12 @@
       function crear() {
             /**Invoamos la función que se encarga de validar los datos */
             if(validarFormulario()){
+                var datos=$( "#registroMedico" ).serializeArray();
+                datos.push({name:"funcion",value:"registrar"});
                  $.ajax({
-                   url:"Controlador/controladorAgregarM.php", 
+                   url:"Controlador/controladorFuncionesM.php", 
                    type: "POST",
-                   data: $( "#registroMedico" ).serialize(),
+                   data: datos,
                    success: function(result){
                      document.getElementById("registroMedico").reset();
                      document.getElementById('mensajes').innerHTML = result;
