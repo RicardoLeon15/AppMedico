@@ -22,7 +22,7 @@
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="css/estilosAdministrador.css">
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <style>
                 header{
                     background: #012e46;
@@ -100,7 +100,7 @@
             <!--En esta sección va el logo-->
             <div class="logo">
                 <div class="circle">
-                    <img src="logoAM.png" alt="Perfil" width="150px" height="50px">
+                    <img src="Imagenes/logoAM.png" alt="Perfil" width="150px" height="50px">
                 </div>
             </div>
         </header>
@@ -117,7 +117,7 @@
                 <label style="color:white;  font-size: 14px;">Usuario</label>
                 <li><a href="listaMedicos">Lista medicos</a></li>
                 <li><a href="agregarMedico">Registrar medico</a></li>
-                <li><a href="#">Acerca de</a></li>
+                <li><a href="acercaDeA">Acerca de</a></li>
             </ul>
           </div>
 <?php

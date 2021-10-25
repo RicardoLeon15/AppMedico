@@ -24,7 +24,18 @@ require_once 'Modelo/Medico.php';
 
         public function contenido(){
 ?>
-
+    <style>
+      #eliminarM{
+            height: 30px;
+            color:white;
+            background-color: #012e46;
+            border-radius: 5px;
+        }
+        #eliminarM:hover{
+            background-color: #02152b;
+            text-decoration:underline ;
+        }
+    </style>
     <!--Agregamos la tabla con los registros de los pacientes-->
     <br><br>
     <div class="contenedorLista">
@@ -70,7 +81,7 @@ require_once 'Modelo/Medico.php';
                   echo "<td>".$valor->getNombre()."</td>";
                   echo "<td>".$valor->getPaterno()."</td>";
                   echo "<td>".$valor->getMaterno()."</td>";
-                  echo "<td><input type='button' value='Eliminar'></td>";
+                  echo "<td> <button type='button' value='Eliminar' id='eliminarM' name='eliminarMedico'>Eliminar</button></td>";
                 echo "</tr>";
               }
             ?>
@@ -80,6 +91,65 @@ require_once 'Modelo/Medico.php';
       <br><br>
     </div>
   </div>
+
+  <!---------------Funcion para fitrar datos en la tabla---------------------->
+  <script>
+
+    function Buscar(){
+        const registros = document.getElementById('tMedicos'); //Almacenamos los registros/tabla
+        const buscarR = document.getElementById('buscarNombre').value.toUpperCase();//Obtenemos la cadena a buscar
+        let total = 0;
+
+        // Recorremos todas las filas
+        for (let i = 1; i < registros.rows.length; i++) {
+            let encontrar = false;
+            //Almacenamos las celdas de cada columna
+            const celdasC = registros.rows[i].getElementsByTagName('td');
+            // Recorremos todas las celdas
+            for (let j = 0; j < celdasC.length && !encontrar; j++) {
+                const compareWith = celdasC[j].innerHTML.toUpperCase();
+                // Buscamos el texto en el contenido de la celda
+                if (buscarR.length == 0 || compareWith.indexOf(buscarR) > -1) {
+                    encontrar = true;
+                    total++;
+                }
+            }
+            if (encontrar) {
+                /*Mostramos las coincidencias*/
+                registros.rows[i].style.display = '';
+            } else {
+                /*Ocultamos los registros*/
+                registros.rows[i].style.display = 'none';
+            }
+        }
+    }
+
+    $(document).on('click', '#eliminarM', function (event) {
+      event.preventDefault();
+      //= $(this).find("td:first-child").text();
+      var reg=$(this).closest('tr');
+      var cla = reg.find("td:first-child").text();
+
+      var opcion=confirm("¿Desea eliminar el registro?")
+      if (opcion==true) 
+      {
+        $.ajax({
+          url:"Controlador/controladorEliminarM.php", 
+          type: "POST",
+          data:{
+             clave:cla,
+          },
+          success: function(result){
+            reg.remove();
+            alert("Registro eliminado exitosamente");
+           },complete: function(){}
+        });
+      }
+    });
+
+  </script>
+
+
 
     
 <?php
