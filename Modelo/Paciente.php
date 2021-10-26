@@ -93,20 +93,15 @@
         /**
          * @return Expediente
          */
-        public function getExpediente(){ return $this->Expediente;}
-        
-        /**
-         * @return string
-         */
-        public function agregarPaciente(){
-            require_once("ConexionBD.php");
-            $conexion = conexion();
-            $sql = "INSERT INTO Paciente(Nombre, Paterno, Materno, Edad, Genero, FNacimiento, IdExpediente) VALUES ('".$this->Nombre."','".$this->Paterno."','".$this->Materno."','".$this->Edad."','".$this->Genero."','".$this->FechaNacimiento."','".$this->Expediente->getIdExpediente()."')";
-            if($conexion->query($sql) === TRUE) {
-                return "Paciente registrado exitosamente";
-            } 
+        public function getExpediente(){
+            return $this->Expediente;
         }
 
+        /**
+        *
+        * @param string $IdPaciente
+        * @return boolean
+        */
         public function buscarPaciente($IdPaciente){
             require_once("ConexionBD.php");
             $conexion = conexion();
@@ -126,6 +121,39 @@
             }
             return false;
         }
+        
+        /**
+         * @param string $Nombre
+         * @param string $Paterno
+         * @param string $Materno
+         * @param string $Edad
+         * @param string $Genero
+         * @param string $FeNa
+         * @param Expediente $Expediente
+         */
+        public function actualizarDatos($Nombre,$Paterno,$Materno,$Edad,$Genero,$FeNa,$Expediente){
+            $this->Nombre=$Nombre;
+            $this->Paterno=$Paterno;
+            $this->Materno=$Materno;
+            $this->Edad=$Edad;
+            $this->Genero=$Genero;
+            $this->FechaNacimiento=$FeNa;
+            $this->Expediente=$Expediente;
+        }
+        
+        /**
+         * @return string
+         */
+        public function agregarPaciente(){
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $sql = "INSERT INTO Paciente(Nombre, Paterno, Materno, Edad, Genero, FNacimiento, IdExpediente) VALUES ('".$this->Nombre."','".$this->Paterno."','".$this->Materno."','".$this->Edad."','".$this->Genero."','".$this->FechaNacimiento."','".$this->Expediente->getIdExpediente()."')";
+            if($conexion->query($sql) === TRUE) {
+                return "Paciente registrado exitosamente";
+            } 
+        }
+
+        
         
     }
 ?>
