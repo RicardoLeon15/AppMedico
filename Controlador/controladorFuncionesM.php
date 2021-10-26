@@ -16,7 +16,6 @@
     }
 
     function registrar(){
-        $modelo=new ExpedienteDB();
 
         $nombre=$_POST['NombreP'];
         $apellidoP=$_POST['ApellidoPaternoP'];
@@ -31,13 +30,13 @@
         $feRe=$_POST['fRegistroP'];
 
         $exp=new Expediente($diagnostico,$sintomas,$receta,$feRe,1);
-        $idExp=$modelo->ingresarExpediente($exp); /**Obtenemos el id del expediente ingresado */
-        
-        $pa=new Paciente($nombre,$apellidoP,$apellidoM,$edad,$genero,$feNa,$idExp);
-        $aux=$pa;
-        echo $aux->agregarPaciente($pa);
-        
-        
+        if($exp->ingresarExpediente()==true) /**Obtenemos el id del expediente ingresado */
+        {
+            /**Creamos el nuevo paciente */
+            $pa=new Paciente($nombre,$apellidoP,$apellidoM,$edad,$genero,$feNa,$exp);
+            return $pa->agregarPaciente();
+        }
+
     }
     
 
