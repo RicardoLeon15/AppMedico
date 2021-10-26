@@ -44,52 +44,51 @@
          */
         protected $Expediente;
 
-        /**
-         * @param string $Nombre
-         * @param string $Paterno
-         * @param string $Materno
-         * @param string $Edad
-         * @param string $Genero
-         * @param string $FeNa
-         * @param Expediente $Expediente
-         */
-        function __construct($Nombre,$Paterno,$Materno,$Edad,$Genero,$FeNa,$Expediente){
-            $this->Nombre=$Nombre;
-            $this->Paterno=$Paterno;
-            $this->Materno=$Materno;
-            $this->Edad=$Edad;
-            $this->Genero=$Genero;
-            $this->FechaNacimiento=$FeNa;
-            $this->Expediente=$Expediente;
+        public function __construct(){
+            $this->Expediente = new Expediente();
         }
         /**
          * @return string
          */
-        public function getIdPaciente(){return $this->IdPaciente;}
+        public function getIdPaciente(){
+            return $this->IdPaciente;
+        }
         /**
          * @return string
          */
-        public function getNombre(){return $this->Nombre;}
+        public function getNombre(){
+            return $this->Nombre;
+        }
         /**
          * @return string
          */
-        public function getPaterno(){return $this->Paterno;}
+        public function getPaterno(){
+            return $this->Paterno;
+        }
         /**
          * @return string
          */
-        public function getMaterno(){return $this->Materno;}
+        public function getMaterno(){
+            return $this->Materno;
+        }
         /**
          * @return string
          */
-        public function getEdad(){return $this->Edad;}
+        public function getEdad(){
+            return $this->Edad;
+        }
         /**
          * @return string
          */
-        public function getGenero(){return $this->Genero;}
+        public function getGenero(){
+            return $this->Genero;
+        }
         /**
          * @return string
          */
-        public function getFechaNacimiento(){return $this->FechaNacimiento;}
+        public function getFechaNacimiento(){
+            return $this->FechaNacimiento;
+        }
         /**
          * @return Expediente
          */
@@ -118,6 +117,35 @@
                     $this->FechaNacimiento = $datos[0]["Fecha de nacimiento"];
                     return true;
                 }
+            }
+            return false;
+        }
+
+        /**
+         * @return boolean 
+         */
+        public function actualizarPaciente(){
+            if($this->Expediente->actualizarExpediente()){
+                require_once("ConexionBD.php");
+                $conexion = conexion();
+                $idexpediente = $this->Expediente->getIdExpediente();
+                $actualiza = mysqli_query($conexion,"UPDATE Paciente SET Nombre = '$this->Nombre', Paterno = '$this->Paterno', Materno = '$this->Materno', Edad = '$this->Edad', Genero = '$this->Genero', Fecha de nacimiento = '$this->FechaNacimiento', IdExpediente = '$idexpediente' WHERE IdPaciente = '$this->IdPaciente'");
+                if($actualiza){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * @return boolean
+         */
+        public function eliminarPaciente(){
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $delete = mysqli_query($conexion,"DELETE FROM Paciente WHERE IdPaciente = '$this->IdPaciente'");
+            if($delete){
+                return true;
             }
             return false;
         }
@@ -151,9 +179,22 @@
             if($conexion->query($sql) === TRUE) {
                 return "Paciente registrado exitosamente";
             } 
-        }
+        } 
+    }
 
-        
-        
+    class ListaPaciente{
+        /**
+         * @var Paciente|array
+         */
+        private $Pacientes = array();
+         
+        /**
+         * @param string $fecha
+         */
+        public function buscarFecha($fecha){
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $registro = mysqli_query($conexion,"SELECT * FROM paciente WHERE Ingreso='$IdPaciente'");
+        }
     }
 ?>
