@@ -5,74 +5,87 @@ use function Modelo\conexion;
         /**
          * @var string
          */
-        protected $IdExpediente;
-
+        private $IdExpediente;
         /**
          * @var string
          */
-        protected $Padecimiento;
-
+        private $Padecimiento;
         /**
          * @var string
          */
-        protected $Sintomas;
-
+        private $Sintomas;
         /**
          * @var string
          */
-        protected $Ingreso;
-
+        private $Ingreso;
         /**
          * @var string
          */
-        protected $Medicacion;
-
+        private $Medicacion;
         /**
          * @var string
          */
-        protected $IdDcotor;
+        private $IdDoctor;
 
         /**
          * @return string
          */
-        public function getIdExpediente(){
-            return $this->IdExpediente;
-        }
-
+        public function getIdExpediente(){return $this->IdExpediente;}
         /**
          * @return string
          */
-        public function getPadecimiento(){
-            return $this->Padecimiento;
-        }
-
+        public function getPadecimiento(){return $this->Padecimiento;}
         /**
          * @return string
          */
-        public function getSintomas(){
-            return $this->Sintomas;
-        }
-
+        public function getSintomas(){return $this->Sintomas;}
         /**
          * @return string
          */
-        public function getIngreso(){
-            return $this->Ingreso;
-        }
-
+        public function getIngreso(){return $this->Ingreso;}
         /**
          * @return string
          */
-        public function getMedicacion(){
-            return $this->Medicacion;
-        }
-
+        public function getMedicacion(){return $this->Medicacion;}
         /**
          * @return string
          */
-        public function getIdDoctor(){
-            return $this->IdDcotor;
+        public function getIdDoctor(){return $this->IdDoctor;}
+
+        function __construct($Padecimiento,$Sintomas,$Medicacion,$Ingreso,$IdDoctor)
+        {
+            $this->Padecimiento=$Padecimiento;
+            $this->Sintomas=$Sintomas;
+            $this->Ingreso=$Ingreso;
+            $this->Medicacion=$Medicacion;
+            $this->IdDcotor=$IdDoctor;
         }
+
+        /**
+         * @return boolean 
+        */
+        public function ingresarExpediente(){
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $iddoctor="1";
+            $IdExpediente=" ";
+            $sql = "INSERT INTO Expediente(Padecimiento, Sintomas, Ingreso, Medicacion, IdDoctor) VALUES ('".$this->Padecimiento."','".$this->Sintomas."','".$this->Ingreso."','".$this->Medicacion."',1)";
+            if ($conexion->query($sql) === TRUE) {
+                /**Obtenemos el Id del expediente para posteriormente unirlo al medico */
+                $sqlM="SELECT MAX(IdExpediente) AS id FROM Expediente";
+                $result = mysqli_query($conexion, $sqlM);
+                if (mysqli_num_rows($result) > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($result)) { 
+                        /**Le asignamos el Id al expediente */
+                        $this->IdExpediente=$row["id"];   
+                        return true;                   
+                    } 
+                  } else {
+                    return false;
+                  }
+            }
+        }  
 
         /**
          * @param string $IdExpediente

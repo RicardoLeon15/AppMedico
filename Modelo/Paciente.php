@@ -44,73 +44,15 @@
          */
         protected $Expediente;
 
-        public function __construct()
-        {
-            $this->Expediente = new Expediente();
-        }
-
         /**
-         * @return string
+         * @param string $Nombre
+         * @param string $Paterno
+         * @param string $Materno
+         * @param string $Edad
+         * @param string $Genero
+         * @param string $FeNa
+         * @param Expediente $Expediente
          */
-        public function getIdPaciente(){
-            return $this->IdPaciente;
-        }
-
-        /**
-         * @return string
-         */
-        public function getNombre(){
-            return $this->Nombre;
-        }
-
-        /**
-         * @return string
-         */
-        public function getPaterno(){
-            return $this->Paterno;
-        }
-
-        /**
-         * @return string
-         */
-        public function getMaterno(){
-            return $this->Materno;
-        }
-
-        /**
-         * @return string
-         */
-        public function getEdad(){
-            return $this->Edad;
-        }
-
-        /**
-         * @return string
-         */
-        public function getGenero(){
-            return $this->Genero;
-        }
-
-        /**
-         * @return string
-         */
-        public function getFechaNacimiento(){
-            return $this->FechaNacimiento;
-        }
-
-        /**
-         * @return Expediente
-         */
-        public function getExpediente(){
-            return $this->Expediente;
-        }
-
-        /**
-        *
-        * @param string $IdPaciente
-        * @return boolean
-        */
-
         function __construct($Nombre,$Paterno,$Materno,$Edad,$Genero,$FeNa,$Expediente){
             $this->Nombre=$Nombre;
             $this->Paterno=$Paterno;
@@ -120,22 +62,47 @@
             $this->FechaNacimiento=$FeNa;
             $this->Expediente=$Expediente;
         }
+        /**
+         * @return string
+         */
+        public function getIdPaciente(){return $this->IdPaciente;}
+        /**
+         * @return string
+         */
+        public function getNombre(){return $this->Nombre;}
+        /**
+         * @return string
+         */
+        public function getPaterno(){return $this->Paterno;}
+        /**
+         * @return string
+         */
+        public function getMaterno(){return $this->Materno;}
+        /**
+         * @return string
+         */
+        public function getEdad(){return $this->Edad;}
+        /**
+         * @return string
+         */
+        public function getGenero(){return $this->Genero;}
+        /**
+         * @return string
+         */
+        public function getFechaNacimiento(){return $this->FechaNacimiento;}
+        /**
+         * @return Expediente
+         */
+        public function getExpediente(){ return $this->Expediente;}
         
         /**
-         * @param Paciente $objeto
+         * @return string
          */
-        public function agregarPaciente($objeto){
-            $conexion=conexion();
-            $nom=$objeto->Nombre;
-            $ap=$objeto->Paterno;
-            $am=$objeto->Materno;
-            $edad=$objeto->Edad;
-            $gen=$objeto->Genero;
-            $fNa=$objeto->FechaNacimiento;
-            $exp=$objeto->Expediente;
-
-            $sql = "INSERT INTO Paciente(Nombre, Paterno, Materno, Edad, Genero, FNacimiento, IdExpediente) VALUES ('".$nom."','".$ap."','".$am."','".$edad."','".$gen."','".$fNa."','".$exp."')";
-            if ($conexion->query($sql) === TRUE) {
+        public function agregarPaciente(){
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $sql = "INSERT INTO Paciente(Nombre, Paterno, Materno, Edad, Genero, FNacimiento, IdExpediente) VALUES ('".$this->Nombre."','".$this->Paterno."','".$this->Materno."','".$this->Edad."','".$this->Genero."','".$this->FechaNacimiento."','".$this->Expediente->getIdExpediente()."')";
+            if($conexion->query($sql) === TRUE) {
                 return "Paciente registrado exitosamente";
             } 
         }

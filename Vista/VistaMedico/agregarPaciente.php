@@ -127,7 +127,7 @@
                    data: datos,
                    success: function(resultado){
                     document.getElementById("registroPacienteAP").reset();
-                    document.getElementById('mensajes').innerHTML = resultado;
+                    document.getElementById('mensajes').innerHTML = "Paciente registrado exitosamente";
                     document.getElementById('mensajes').style='display:block;background-color: rgb(0, 196, 0, .3);color:green;';
 
                     /**La siguiente función se encargar de ocultar el div */
