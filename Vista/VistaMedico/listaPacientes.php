@@ -11,13 +11,13 @@
 
         public function __construct()
         {
+          $this->modelo = new ListaPaciente();
+          $this->modelo->allPacientes();
+          $this->lpac = $this->modelo->getPacientes();
           $this->encabezado();
           $this->menu();
           $this->contenido();
           $this->footer();
-          $this->modelo = new ListaPaciente();
-          $this->modelo->allPacientes();
-          $this->lpac = $this->modelo->getPacientes();
         }
         public  function terminarControlador(){}
         public  function notificar(){}
@@ -68,7 +68,7 @@
               
               foreach ($this->lpac as $valor) {
                 echo "<tr>";
-                  echo "<td>".$valor->getId()."</td>";
+                  echo "<td>".$valor->getIdPaciente()."</td>";
                   echo "<td>".$valor->getNombre()."</td>";
                   echo "<td>".$valor->getPaterno()."</td>";
                   echo "<td>".$valor->getGenero()."</td>";
@@ -85,7 +85,36 @@
       <br><br>
     </div>
   </div>
+<script>
+  function Buscar(){
+        const registros = document.getElementById('tPacientes'); //Almacenamos los registros/tabla
+        const buscarR = document.getElementById('buscarNombre').value.toUpperCase();//Obtenemos la cadena a buscar
+        let total = 0;
 
+        // Recorremos todas las filas
+        for (let i = 1; i < registros.rows.length; i++) {
+            let encontrar = false;
+            //Almacenamos las celdas de cada columna
+            const celdasC = registros.rows[i].getElementsByTagName('td');
+            // Recorremos todas las celdas
+            for (let j = 0; j < celdasC.length && !encontrar; j++) {
+                const compareWith = celdasC[j].innerHTML.toUpperCase();
+                // Buscamos el texto en el contenido de la celda
+                if (buscarR.length == 0 || compareWith.indexOf(buscarR) > -1) {
+                    encontrar = true;
+                    total++;
+                }
+            }
+            if (encontrar) {
+                /*Mostramos las coincidencias*/
+                registros.rows[i].style.display = '';
+            } else {
+                /*Ocultamos los registros*/
+                registros.rows[i].style.display = 'none';
+            }
+        }
+    }
+</script>
     
 <?php
         }
