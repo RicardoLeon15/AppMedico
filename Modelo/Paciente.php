@@ -1,9 +1,10 @@
 <?php
 
+    use Modelo\Sujeto;
     require_once 'Expediente.php';
     use function Modelo\conexion;
-
-    class Paciente{
+    
+    class Paciente extends Sujeto{
         /**
          * @var string
          */
