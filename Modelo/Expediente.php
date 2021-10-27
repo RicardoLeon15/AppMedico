@@ -63,6 +63,12 @@ use function Modelo\conexion;
         public function getIdDoctor(){
             return $this->IdDoctor;
         }
+        /**
+         * @param string $IdExpediente
+         */
+        public function setIdExpediente($IdExpediente){
+            $this->IdExpediente = $IdExpediente;
+        }
 
         /**
          * @param string $Padecimiento

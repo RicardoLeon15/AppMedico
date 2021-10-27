@@ -95,6 +95,12 @@
         public function getExpediente(){
             return $this->Expediente;
         }
+        /**
+         * @param string $IdPaciente
+         */
+        public function setIdPaciente($IdPaciente){
+            $this->IdPaciente = $IdPaciente;
+        }
 
         /**
         *
@@ -192,9 +198,44 @@
          * @param string $fecha
          */
         public function buscarFecha($fecha){
+            reset($Pacientes);
             require_once("ConexionBD.php");
             $conexion = conexion();
-            $registro = mysqli_query($conexion,"SELECT * FROM paciente WHERE Ingreso='$IdPaciente'");
+            $registro = mysqli_query($conexion,"SELECT p.IdPaciente,p.Nombre, p.Paterno, p.Materno, p.Edad, p.Genero,
+                                                p.`Fecha de Nacimiento`, e.IdExpediente, e.Padecimiento, e.Sintomas,
+                                                e.Ingreso, e.Medicacion, e.IdDoctor FROM Paciente AS p INNER JOIN Expediente
+                                                AS e ON p.IdExpediente = e.IdExpediente WHERE e.Ingreso LIKE '%$fecha%'");
+            while($row=mysqli_fetch_assoc($registro)){
+                $ex = new Expediente();
+                $ex->setIdExpediente($row["IdExpediente"]);
+                $ex->actualizarDatos($row["Padecimiento"],$row["Sintomas"],$row["Medicacion"],$row["Ingreso"],$row["IdDoctor"]);
+                $pac = new Paciente();
+                $pac->setIdPaciente($row["IdPaciente"]);
+                $pac->actualizarDatos($row["Nombre"],$row["Paterno"],$row["Materno"],$row["Edad"],$row["Genero"],$row["Fecha de Nacimiento"],$ex);
+                array_push($this->$Pacientes,$pac);
+            }
+        }
+
+        /**
+         * @param string $Nombre
+         */
+        public function buscarNombre($Nombre){
+            reset($Pacientes);
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $registro = mysqli_query($conexion,"SELECT p.IdPaciente,p.Nombre, p.Paterno, p.Materno, p.Edad, p.Genero,
+                                                p.`Fecha de Nacimiento`, e.IdExpediente, e.Padecimiento, e.Sintomas,
+                                                e.Ingreso, e.Medicacion, e.IdDoctor FROM Paciente AS p INNER JOIN Expediente
+                                                AS e ON p.IdExpediente = e.IdExpediente WHERE p.Nombre LIKE '%$Nombre%' OR p.Paterno LIKE '%$Nombre%' OR p.Materno LIKE '%$Nombre%'");
+            while($row=mysqli_fetch_assoc($registro)){
+                $ex = new Expediente();
+                $ex->setIdExpediente($row["IdExpediente"]);
+                $ex->actualizarDatos($row["Padecimiento"],$row["Sintomas"],$row["Medicacion"],$row["Ingreso"],$row["IdDoctor"]);
+                $pac = new Paciente();
+                $pac->setIdPaciente($row["IdPaciente"]);
+                $pac->actualizarDatos($row["Nombre"],$row["Paterno"],$row["Materno"],$row["Edad"],$row["Genero"],$row["Fecha de Nacimiento"],$ex);
+                array_push($this->$Pacientes,$pac);
+            }
         }
     }
 ?>
