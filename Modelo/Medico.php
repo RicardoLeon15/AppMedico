@@ -1,7 +1,10 @@
 <?php
+
+    use Modelo\Sujeto;
     use function Modelo\conexion;
     //require_once 'Modelo/ConexionBD.php';
-    class Medico{
+    require_once 'Sujeto.php';
+    class Medico extends Sujeto{
 
         /**
          * @var int
