@@ -34,7 +34,8 @@
         {
             /**Creamos el nuevo paciente */
             $pa=new Paciente($nombre,$apellidoP,$apellidoM,$edad,$genero,$feNa,$exp);
-            return $pa->agregarPaciente();
+            echo $pa->agregarPaciente();
+            return;
         }
 
     }

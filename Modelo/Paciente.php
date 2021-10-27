@@ -2,6 +2,7 @@
 
     use Modelo\Sujeto;
     require_once 'Expediente.php';
+    require_once 'Sujeto.php';
     use function Modelo\conexion;
     
     class Paciente extends Sujeto{
