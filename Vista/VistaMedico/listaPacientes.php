@@ -44,7 +44,7 @@
       </div>
         
       <div id="buscadorFecha" class="col s3 right-align offset-s5">   
-        <input type="date" class="col s3 center-align"id="buscarFecha" onclick="" placeholder="dd/mm/aa" class="mt-4 form-control">
+        <input type="date" class="col s3 center-align"id="buscarFecha" onclick="" placeholder="dd/mm/aa" class="mt-4 form-control" onkeyup="BuscarFecha()">
       </div>
       <br><br><br>
 
@@ -89,6 +89,35 @@
   function Buscar(){
         const registros = document.getElementById('tPacientes'); //Almacenamos los registros/tabla
         const buscarR = document.getElementById('buscarNombre').value.toUpperCase();//Obtenemos la cadena a buscar
+        let total = 0;
+
+        // Recorremos todas las filas
+        for (let i = 1; i < registros.rows.length; i++) {
+            let encontrar = false;
+            //Almacenamos las celdas de cada columna
+            const celdasC = registros.rows[i].getElementsByTagName('td');
+            // Recorremos todas las celdas
+            for (let j = 0; j < celdasC.length && !encontrar; j++) {
+                const compareWith = celdasC[j].innerHTML.toUpperCase();
+                // Buscamos el texto en el contenido de la celda
+                if (buscarR.length == 0 || compareWith.indexOf(buscarR) > -1) {
+                    encontrar = true;
+                    total++;
+                }
+            }
+            if (encontrar) {
+                /*Mostramos las coincidencias*/
+                registros.rows[i].style.display = '';
+            } else {
+                /*Ocultamos los registros*/
+                registros.rows[i].style.display = 'none';
+            }
+        }
+    }
+    
+    function BuscarFecha(){
+        const registros = document.getElementById('tPacientes'); //Almacenamos los registros/tabla
+        const buscarR = document.getElementById('buscarFecha').value;//Obtenemos la cadena a buscar
         let total = 0;
 
         // Recorremos todas las filas
