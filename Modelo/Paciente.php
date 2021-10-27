@@ -198,7 +198,7 @@
          * @param string $fecha
          */
         public function buscarFecha($fecha){
-            reset($Pacientes);
+            reset($this->Pacientes);
             require_once("ConexionBD.php");
             $conexion = conexion();
             $registro = mysqli_query($conexion,"SELECT p.IdPaciente,p.Nombre, p.Paterno, p.Materno, p.Edad, p.Genero,
@@ -212,7 +212,7 @@
                 $pac = new Paciente();
                 $pac->setIdPaciente($row["IdPaciente"]);
                 $pac->actualizarDatos($row["Nombre"],$row["Paterno"],$row["Materno"],$row["Edad"],$row["Genero"],$row["Fecha de Nacimiento"],$ex);
-                array_push($this->$Pacientes,$pac);
+                array_push($this->Pacientes,$pac);
             }
         }
 
@@ -220,7 +220,7 @@
          * @param string $Nombre
          */
         public function buscarNombre($Nombre){
-            reset($Pacientes);
+            reset($this->Pacientes);
             require_once("ConexionBD.php");
             $conexion = conexion();
             $registro = mysqli_query($conexion,"SELECT p.IdPaciente,p.Nombre, p.Paterno, p.Materno, p.Edad, p.Genero,
@@ -234,8 +234,32 @@
                 $pac = new Paciente();
                 $pac->setIdPaciente($row["IdPaciente"]);
                 $pac->actualizarDatos($row["Nombre"],$row["Paterno"],$row["Materno"],$row["Edad"],$row["Genero"],$row["Fecha de Nacimiento"],$ex);
-                array_push($this->$Pacientes,$pac);
+                array_push($this->Pacientes,$pac);
             }
+        }
+        public function allPacientes(){
+            reset($this->Pacientes);
+            require_once("ConexionBD.php");
+            $conexion = conexion();
+            $registro = mysqli_query($conexion,"SELECT p.IdPaciente,p.Nombre, p.Paterno, p.Materno, p.Edad, p.Genero,
+                                                p.`Fecha de Nacimiento`, e.IdExpediente, e.Padecimiento, e.Sintomas,
+                                                e.Ingreso, e.Medicacion, e.IdDoctor FROM Paciente AS p INNER JOIN Expediente
+                                                AS e ON p.IdExpediente = e.IdExpediente");
+            while($row=mysqli_fetch_assoc($registro)){
+                $ex = new Expediente();
+                $ex->setIdExpediente($row["IdExpediente"]);
+                $ex->actualizarDatos($row["Padecimiento"],$row["Sintomas"],$row["Medicacion"],$row["Ingreso"],$row["IdDoctor"]);
+                $pac = new Paciente();
+                $pac->setIdPaciente($row["IdPaciente"]);
+                $pac->actualizarDatos($row["Nombre"],$row["Paterno"],$row["Materno"],$row["Edad"],$row["Genero"],$row["Fecha de Nacimiento"],$ex);
+                array_push($this->Pacientes,$pac);
+            }
+        }
+        /**
+         * @return Paciente|array
+         */
+        public function getPacientes(){
+            return $this->Pacientes;
         }
     }
 ?>

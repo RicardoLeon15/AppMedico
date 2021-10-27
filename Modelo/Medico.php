@@ -1,7 +1,6 @@
 <?php
-
-use function Modelo\conexion;
-//require_once 'Modelo/ConexionBD.php';
+    use function Modelo\conexion;
+    //require_once 'Modelo/ConexionBD.php';
     class Medico{
 
         /**
@@ -11,82 +10,156 @@ use function Modelo\conexion;
         /**
          * @var string
          */
-        private $contra;
+        private $Nombre;
         /**
          * @var string
          */
-        private $nombre;
+        private $Paterno;
 
         /**
          * @var string
          */
-        private $paterno;
+        private $Materno;
 
         /**
          * @var string
          */
-        private $materno;
+        private $Contrasenia;
 
-        function __construct($IdMedico,$nombre,$paterno,$materno,$contra){
-            $this->IdMedico=$IdMedico;
-            $this->nombre=$nombre;
-            $this->paterno=$paterno;
-            $this->materno=$materno;
-            $this->contra=$contra;
+        public function __construct(){
         }
 
-        function getId(){return $this->IdMedico;}
-        function getNombre(){return $this->nombre;}
-        function getPaterno(){return $this->paterno;}
-        function getMaterno(){return $this->materno;}
-        function getContra(){return $this->contra;}
+        /**
+         * @return string
+         */
+        public function getId(){
+          return $this->IdMedico;
+        }
+
+        /**
+         * @return string
+         */
+        public function getNombre(){
+          return $this->Nombre;
+        }
+
+        /**
+         * @return string
+         */
+        public function getPaterno(){
+          return $this->Paterno;
+        }
+
+        /**
+         * @return string
+         */
+        public function getMaterno(){
+          return $this->Materno;
+        }
+
+        /**
+         * @return string
+         */
+        public function getContrasenia(){
+          return $this->Contrasenia;
+        }
+
+        /**
+         * @param string $IdMedico
+         * @param string $Nombre
+         * @param string $Paterno
+         * @param string $Materno
+         * @param string $Contrasenia
+         */
+        public function actualizaDatos($IdMedico,$Nombre,$Paterno,$Materno,$Contrasenia){
+          $this->IdMedico=$IdMedico;
+          $this->Nombre=$Nombre;
+          $this->Paterno=$Paterno;
+          $this->Materno=$Materno;
+          $this->Contrasenia=$Contrasenia;
+      }
+
+      /**
+       * @return boolean
+       */
+      public function agregarMedico(){
+        require_once("ConexionBD.php");
+        $conexion = conexion();
+        $add = mysqli_query($conexion,"INSERT INTO Doctor(Nombre,Paterno,Materno,Contrasenia) VALUE('$this->Nombre','$this->Paterno','$this->Materno','$this->Comtrasenia')");
+        if($add){
+          return true;
+        }
+        return false;
+      }
+
+      /**
+       * @return boolean
+       */
+      public function eliminarMedico(){
+        require_once("ConexionBD.php");
+        $conexion = conexion();
+        $delete = mysqli_query($conexion,"DELETE FROM Doctor WHERE IdDoctor = '$this->IdMedico'");
+        if($delete){
+          return true;
+        }
+        return false;
+      }
+
+      /**
+       * @param string $IdMedico
+       * @param string $Contrasenia
+       * @return boolean
+       */
+      public function iniciarSesion($IdMedico,$Contrasenia){
+        require_once("ConexionBD.php");
+        $conexion = conexion();
+        $registro = mysqli_query($conexion,"SELECT * FROM Doctor WHERE IdDoctor = '$IdMedico' AND Contrasenia='$Contrasenia'");
+        if($row = mysqli_fetch_assoc($registro)){
+          $this->actualizaDatos($row["IdDoctor"],$row["Nombre"],$row["Paterno"],$row["Materno"],$row["Contrasenia"]);
+          return true;
+        }
+        return false;
+      }
     }
 
-    class MedicoDB{
-        public $conexion;
-        function __construct()
-        {
-            $this->conexion=conexion();
-        }
+    class ListaMedico{
+      /**
+       * @var Medico|array
+       */
+      private $Medicos = array();
 
-        public function mostrarMedicos(){
-            $sql = "SELECT * FROM Doctor";
-            $result = mysqli_query($this->conexion, $sql);
-            $listaMedicos= array();
-            if (mysqli_num_rows($result) > 0) {
-              // output data of each row
-              while($row = mysqli_fetch_assoc($result)) { 
-                /**Creamos el objeto aux */
-                $medicoAux=new Medico($row["IdDoctor"],$row["Nombre"],$row["Paterno"],$row["Materno"],"0"); 
-                $listaMedicos[]=$medicoAux;
-                
-              } 
-              /**Devolvemos la lista de pacientes*/
-              return $listaMedicos;
-            } else {
-              echo "0 results";
-            }
-        }
-        /**
-         * @param Medico $elemento
-         */
-        public function ingresarMedico($elemento){
-          $nom=$elemento->getNombre();
-          $ap=$elemento->getPaterno();
-          $am=$elemento->getMaterno();
-          $con=$elemento->getContra();
-          $sql = "INSERT INTO Doctor(Nombre, Paterno, Materno, Contrasenia) VALUES ('".$nom."','".$ap."','".$am."','".$con."')";
-          if ($this->conexion->query($sql) === TRUE) {
-            return "Medico registrado exitosamente";
-          }      
-        }
+      /**
+       * @return Medico|array
+       */
+      public function getMedicos(){
+        return $this->Medicos;
+      }
 
-        public function eliminarMedico($clave){
-          $sql = "DELETE FROM Doctor WHERE IdDoctor='".$clave."'";
-          if ($this->conexion->query($sql) === TRUE) {
-            return "Medico eliminado exitosamente";
-          } 
+      public function allMedicos(){
+        reset($this->Medicos);
+        require_once("ConexionBD.php");
+        $conexion = conexion();
+        $registro = mysqli_query($conexion,"SELECT * FROM Doctor");
+        while($row = mysqli_fetch_assoc($registro)){
+          $med = new Medico();
+          $med->actualizaDatos($row["IdDoctor"],$row["Nombre"],$row["Paterno"],$row["Materno"],$row["Contrasenia"]);
+          array_push($this->Medicos,$med);
         }
+      }
+
+      /**
+       * @param string $Nombre
+       */
+      public function buscarNombre($Nombre){
+        reset($this->Medicos);
+        require_once("ConexionBD.php");
+        $conexion = conexion();
+        $registro = mysqli_query($conexion,"SELECT * FROM Doctor WHERE Nombre LIKE '%$Nombre%' OR Paterno LIKE '%$Nombre%' OR Materno LIKE '%$Nombre%'");
+        while($row = mysqli_fetch_assoc($registro)){
+          $med = new Medico();
+          $med->actualizaDatos($row["IdDoctor"],$row["Nombre"],$row["Paterno"],$row["Materno"],$row["Contrasenia"]);
+          array_push($this->Medicos,$med);
+        }
+      }
     }
-
 ?>
