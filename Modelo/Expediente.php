@@ -83,7 +83,7 @@ use function Modelo\conexion;
             $this->Sintomas=$Sintomas;
             $this->Ingreso=$Ingreso;
             $this->Medicacion=$Medicacion;
-            $this->IdDcotor=$IdDoctor;
+            $this->IdDoctor=$IdDoctor;
         }
 
         /**
@@ -91,24 +91,23 @@ use function Modelo\conexion;
         */
         public function ingresarExpediente(){
             require_once("ConexionBD.php");
+            echo "aaaaaaaaa: $this->Padecimiento','$this->Sintomas','$this->Ingreso','$this->Medicacion','$this->IdDoctor'";
             $conexion = conexion();
-            $iddoctor="1";
-            $IdExpediente=" ";
-            $sql = "INSERT INTO Expediente(Padecimiento, Sintomas, Ingreso, Medicacion, IdDoctor) VALUES ('$this->Padecimiento','$this->Sintomas','$this->Ingreso','$this->Medicacion',1)";
-            if ($conexion->query($sql) === TRUE) {
+            $registro = mysqli_query($conexion,"INSERT INTO Expediente(Padecimiento,Sintomas,Ingreso,Medicacion,IdDoctor) VALUE('$this->Padecimiento','$this->Sintomas','$this->Ingreso','$this->Medicacion','$this->IdDoctor')");
+            if ($registro) {
                 /**Obtenemos el Id del expediente para posteriormente unirlo al medico */
                 $sqlM="SELECT MAX(IdExpediente) AS id FROM Expediente";
                 $result = mysqli_query($conexion, $sqlM);
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
-                    while($row = mysqli_fetch_assoc($result)) { 
+                    if($row = mysqli_fetch_assoc($result)) { 
                         /**Le asignamos el Id al expediente */
                         $this->IdExpediente=$row["id"];   
                         return true;                   
                     } 
-                  } else {
+                  } 
                     return false;
-                  }
+                  
             }
         }  
 

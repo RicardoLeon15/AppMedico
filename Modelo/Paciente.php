@@ -2,6 +2,7 @@
 
     use Modelo\Sujeto;
     require_once 'Expediente.php';
+    require_once 'Sujeto.php';
     use function Modelo\conexion;
     
     class Paciente extends Sujeto{
@@ -182,7 +183,7 @@
         public function agregarPaciente(){
             require_once("ConexionBD.php");
             $conexion = conexion();
-            $sql = "INSERT INTO Paciente(Nombre, Paterno, Materno, Edad, Genero, FNacimiento, IdExpediente) VALUES ('".$this->Nombre."','".$this->Paterno."','".$this->Materno."','".$this->Edad."','".$this->Genero."','".$this->FechaNacimiento."','".$this->Expediente->getIdExpediente()."')";
+            $sql = "INSERT INTO Paciente(Nombre, Paterno, Materno, Edad, Genero, `Fecha de Nacimiento`, IdExpediente) VALUES ('".$this->Nombre."','".$this->Paterno."','".$this->Materno."','".$this->Edad."','".$this->Genero."','".$this->FechaNacimiento."','".$this->Expediente->getIdExpediente()."')";
             if($conexion->query($sql) === TRUE) {
                 return "Paciente registrado exitosamente";
             } 

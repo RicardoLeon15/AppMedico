@@ -11,8 +11,9 @@ require_once 'Modelo/Medico.php';
 
         public function __construct()
         {
-          $this->modelo=new MedicoDB();
-          $this->lMedicos=$this->modelo->mostrarMedicos();
+          $this->modelo=new ListaMedico();
+          $this->modelo->allMedicos();
+          $this->lMedicos=$this->modelo->getMedicos();
           $this->encabezado();
           $this->menu();
           $this->contenido();

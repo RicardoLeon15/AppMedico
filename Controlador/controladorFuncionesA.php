@@ -15,19 +15,19 @@
     }
 
     function registrar(){
-        $modelo=new MedicoDB();
 
         $nombre= $_POST['nombre'];
         $aPaterno=$_POST['aPaterno'];
         $aMaterno=$_POST['aMaterno'];
         $contrasenia=$_POST['cContra'];
 
-        $m=new Medico(0,$nombre,$aPaterno,$aMaterno,$contrasenia);
-        echo $modelo->ingresarMedico($m);
+        $m=new Medico();
+        $m->actualizaDatos(0,$nombre,$aPaterno,$aMaterno,$contrasenia);
+        echo $m->agregarMedico();
     }
 
     function eliminar(){
-        $modelo=new MedicoDB();
+        $modelo=new Medico();
         $cla= $_POST['clave'];
         echo $modelo->eliminarMedico($cla);
     }
