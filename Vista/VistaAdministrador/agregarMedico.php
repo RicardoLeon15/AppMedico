@@ -112,7 +112,7 @@
                    data: datos,
                    success: function(result){
                      document.getElementById("registroMedico").reset();
-                     document.getElementById('mensajes').innerHTML = result;
+                     document.getElementById('mensajes').innerHTML = "Medico Registrado.";
                      document.getElementById('mensajes').style='display:block;background-color: rgb(0, 196, 0, .3);color:green;';
 
                      /**La siguiente función se encargar de ocultar el div */

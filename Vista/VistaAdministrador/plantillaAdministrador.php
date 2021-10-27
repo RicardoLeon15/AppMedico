@@ -1,5 +1,5 @@
 <?php
-
+    
     /**Esta clase funge como la clase abstracta del sistema */
     abstract class Vista{
         public abstract function terminarControlador();

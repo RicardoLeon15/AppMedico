@@ -1,12 +1,19 @@
 <?php
     /**Incluimos la plantilla medico donde almacenamos el navar y el footer*/
-
+    include 'Modelo/ConexionBD.php';
     require_once 'plantillaMedico.php';
+    require_once 'Modelo/Paciente.php';
 
     class listaPacientes extends Vista{
 
+        public $modelo;
+        public $lpac;
+
         public function __construct()
         {
+          $this->modelo = new ListaPaciente();
+          $this->modelo->allPacientes();
+          $this->lpac = $this->modelo->getPacientes();
           $this->encabezado();
           $this->menu();
           $this->contenido();
@@ -56,20 +63,58 @@
         
           <tbody>
             <tr>
-              <td>11228284</td>
-              <td>Genaro</td>
-              <td>Ramírez</td>
-              <td>M</td>
-              <td>18/10/2021</td>
-              <td><a href="datosPaciente.php"><input type="button" value="Editar" id="btnEditar"></a></td>
-              <td><input type="button" value="PDF" id="btnExpediente"></td>
+            <?php
+              /**En este segemento de codigo se cargan los datos del medico*/
+              
+              foreach ($this->lpac as $valor) {
+                echo "<tr>";
+                  echo "<td>".$valor->getIdPaciente()."</td>";
+                  echo "<td>".$valor->getNombre()."</td>";
+                  echo "<td>".$valor->getPaterno()."</td>";
+                  echo "<td>".$valor->getGenero()."</td>";
+                  echo "<td>".$valor->getFechaNacimiento()."</td>";
+                  echo "<td><a href=\"datosPaciente.php\"><input type=\"button\" value=\"Editar\" id=\"btnEditar\"></a></td>
+                        <td><input type=\"button\" value=\"PDF\" id=\"btnExpediente\"></td>";
+                echo "</tr>";
+              }
+            ?>
+              
             </tr>
           </tbody>
       </table>
       <br><br>
     </div>
   </div>
+<script>
+  function Buscar(){
+        const registros = document.getElementById('tPacientes'); //Almacenamos los registros/tabla
+        const buscarR = document.getElementById('buscarNombre').value.toUpperCase();//Obtenemos la cadena a buscar
+        let total = 0;
 
+        // Recorremos todas las filas
+        for (let i = 1; i < registros.rows.length; i++) {
+            let encontrar = false;
+            //Almacenamos las celdas de cada columna
+            const celdasC = registros.rows[i].getElementsByTagName('td');
+            // Recorremos todas las celdas
+            for (let j = 0; j < celdasC.length && !encontrar; j++) {
+                const compareWith = celdasC[j].innerHTML.toUpperCase();
+                // Buscamos el texto en el contenido de la celda
+                if (buscarR.length == 0 || compareWith.indexOf(buscarR) > -1) {
+                    encontrar = true;
+                    total++;
+                }
+            }
+            if (encontrar) {
+                /*Mostramos las coincidencias*/
+                registros.rows[i].style.display = '';
+            } else {
+                /*Ocultamos los registros*/
+                registros.rows[i].style.display = 'none';
+            }
+        }
+    }
+</script>
     
 <?php
         }
