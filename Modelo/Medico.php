@@ -83,12 +83,22 @@
       }
 
       /**
+       * @param string $IdMedico
+       */
+      public function buscarMedico($IdMedico){
+        require_once("ConexionBD.php");
+        $conexion = conexion();
+        $registro = mysqli_query($conexion,"SELECT * FROM Doctor WHERE IdDoctor = '$IdMedico'");
+
+      }
+
+      /**
        * @return boolean
        */
       public function agregarMedico(){
         require_once("ConexionBD.php");
         $conexion = conexion();
-        $add = mysqli_query($conexion,"INSERT INTO Doctor(Nombre,Paterno,Materno,Contrasenia) VALUE('$this->Nombre','$this->Paterno','$this->Materno','$this->Comtrasenia')");
+        $add = mysqli_query($conexion,"INSERT INTO Doctor(Nombre,Paterno,Materno,Contrasenia) VALUE('$this->Nombre','$this->Paterno','$this->Materno','$this->Contrasenia')");
         if($add){
           return true;
         }
@@ -96,12 +106,13 @@
       }
 
       /**
+       * @param string $IdMedico
        * @return boolean
        */
-      public function eliminarMedico(){
+      public function eliminarMedico($IdMedico){
         require_once("ConexionBD.php");
         $conexion = conexion();
-        $delete = mysqli_query($conexion,"DELETE FROM Doctor WHERE IdDoctor = '$this->IdMedico'");
+        $delete = mysqli_query($conexion,"DELETE FROM Doctor WHERE IdDoctor = '$IdMedico'");
         if($delete){
           return true;
         }

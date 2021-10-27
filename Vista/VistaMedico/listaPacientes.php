@@ -1,9 +1,13 @@
 <?php
     /**Incluimos la plantilla medico donde almacenamos el navar y el footer*/
-
+    include 'Modelo/ConexionBD.php';
     require_once 'plantillaMedico.php';
+    require_once 'Modelo/Paciente.php';
 
     class listaPacientes extends Vista{
+
+        public $modelo;
+        public $lpac;
 
         public function __construct()
         {
@@ -11,6 +15,9 @@
           $this->menu();
           $this->contenido();
           $this->footer();
+          $this->modelo = new ListaPaciente();
+          $this->modelo->allPacientes();
+          $this->lpac = $this->modelo->getPacientes();
         }
         public  function terminarControlador(){}
         public  function notificar(){}
@@ -56,13 +63,22 @@
         
           <tbody>
             <tr>
-              <td>11228284</td>
-              <td>Genaro</td>
-              <td>Ramírez</td>
-              <td>M</td>
-              <td>18/10/2021</td>
-              <td><a href="datosPaciente.php"><input type="button" value="Editar" id="btnEditar"></a></td>
-              <td><input type="button" value="PDF" id="btnExpediente"></td>
+            <?php
+              /**En este segemento de codigo se cargan los datos del medico*/
+              
+              foreach ($this->lpac as $valor) {
+                echo "<tr>";
+                  echo "<td>".$valor->getId()."</td>";
+                  echo "<td>".$valor->getNombre()."</td>";
+                  echo "<td>".$valor->getPaterno()."</td>";
+                  echo "<td>".$valor->getGenero()."</td>";
+                  echo "<td>".$valor->getFechaNacimiento()."</td>";
+                  echo "<td><a href=\"datosPaciente.php\"><input type=\"button\" value=\"Editar\" id=\"btnEditar\"></a></td>
+                        <td><input type=\"button\" value=\"PDF\" id=\"btnExpediente\"></td>";
+                echo "</tr>";
+              }
+            ?>
+              
             </tr>
           </tbody>
       </table>

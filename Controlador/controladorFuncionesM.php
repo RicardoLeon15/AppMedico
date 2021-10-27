@@ -29,11 +29,13 @@
         $receta=$_POST['Receta'];
         $feRe=$_POST['fRegistroP'];
 
-        $exp=new Expediente($diagnostico,$sintomas,$receta,$feRe,1);
-        if($exp->ingresarExpediente()==true) /**Obtenemos el id del expediente ingresado */
+        $exp=new Expediente();
+        $exp->actualizarDatos($diagnostico,$sintomas,$receta,$feRe,"4");
+        if($exp->ingresarExpediente()) /**Obtenemos el id del expediente ingresado */
         {
             /**Creamos el nuevo paciente */
-            $pa=new Paciente($nombre,$apellidoP,$apellidoM,$edad,$genero,$feNa,$exp);
+            $pa=new Paciente();
+            $pa->actualizarDatos($nombre,$apellidoP,$apellidoM,$edad,$genero,$feNa,$exp);
             return $pa->agregarPaciente();
         }
 
