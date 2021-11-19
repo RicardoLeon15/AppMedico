@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./pAdministrador.xhtml">
+            <ui:define name="contenido">
+            <br/>
+            <div class="contenedorLista">
+    
+                <div id="contTituloLista">
+                    <h5>Lista de medicos</h5>
+                </div>    
+                <br/><br/>
+      
+                <div class="row" id="conTablaLista">  
+                <br/><br/>
+                
+                <!--SECCION DE LOS BUSCADORES-->
+                <div class="col s12">
+
+                    <div id="buscadorNombre" class="col s4"> 
+                        <input type="text" class="col s3 center-align" id="buscarNombre" placeholder="Ingrese nombre" onkeyup="Buscar()"/>
+                        <i class="Small material-icons col s1 left-align">search</i> 
+                    </div>
+                    <br/>
+                </div>  
+                <!--******************************************************-->      
+                <br/><br/><br/>
+
+                <!--Tabla de medicos-->
+                <table class="centered" id="tMedicos">
+                    <thead>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Nombre</th>
+                            <th>Apellido paterno</th>
+                            <th>Apellido materno</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Genaro</td>
+                            <td>Ramirez</td>
+                            <td>Santiago</td>
+                            <td>Eliminar</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/><br/>
+                </div>
+            </div>   
+            <br/><br/>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
