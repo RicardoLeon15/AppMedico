@@ -1,0 +1,182 @@
+body{
+    font-family: sans-serif;
+    margin:0px;
+    background-color: #f2f2f2;
+}
+header{
+    background: #012e46;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+}
+.corpyright{
+    position: relative;
+    bottom: 0;
+    width: 85%;
+    margin-left: 15%;
+    color: black;
+    border-top: 1px solid gray;
+}
+.center {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 50%;
+}
+       
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    background-color: #02152b;
+    text-align: center;
+    }
+li a {
+    display: block;
+    margin: 5px 5px 5px 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #012e46;
+}
+/* Change the link color on hover */
+li a:hover {
+    background-color: #012e46;
+}
+
+.menuContenedor{
+    position: absolute;
+    top:60px;                
+}
+
+.logo{
+    width: 15%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.footer{
+    width: 85%;
+    border-top: 2px solid gray;
+    margin-left: 15%;
+    position: absolute;
+    color:black;
+    text-align: center;
+}
+
+/*CSS Acerca de*/
+
+.contenedorFormularioAP{
+  width: 85%;
+  margin-left:15%;
+}
+.contenedorFormAP{
+  width: 60%;
+  margin: 0 20% 0 20%;
+  padding: 15px;
+  border:1px solid white;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px black;
+}
+
+/*CSS Lista de los pacientes*/
+
+/*Representa al contenedor principal*/
+.contenedorLista{
+  width: 85%;
+  margin-left: 15%;
+}
+
+#contTituloLista, #conTablaLista{
+  width: 90%;
+  margin: 0px 5% 0 5%;
+  padding: 2px 20px 2px;
+  border:1px solid white;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px black;
+}
+
+#buscadorNombre, #buscadorFecha{
+  color:black;
+  font-size: 14px;
+  background-color:white;
+  height: 35px;
+  padding: 5px 0 5px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#buscadorNombre{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
+#buscadorNombre:focus-within{box-shadow:5px 5px 5px grey;}
+
+#buscadorFecha{transition: 0.3s; /* Hace que las animaciones duren 0.3 segundos */}
+#buscadorFecha:focus-within{box-shadow:5px 5px 5px grey;}
+
+#buscarNombre{
+  width: 90%;
+  height: 30px;
+  border: none;
+}
+#buscarFecha{
+  width:100%;
+  height: 30px;
+  border:none;
+}
+    
+
+#tPacientes{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tPacientes th{
+    width: 15%;
+    background-color:#012e46;
+    color:#fff;
+}
+#tPacientes td{
+    border-bottom: 1px solid black;
+    width: 15%;
+}
+
+#tPacientes tr:nth-child(even){background-color: #e8f5ff;}
+#tPacientes tr:hover {background-color: #c3e3fd;}
+
+#btnEditar{
+  width: 100px;
+  height: 30px;
+}
+
+#btnExpediente{
+  width: 100px;
+  height: 30px;
+}
+
+/*CSS Registrar Paciente*/
+
+#registroPacienteAP{
+    width: 80%;
+    margin-left:10%;
+    margin-right: auto;
+}
+
+#registroPacienteAP input{
+    text-align: center;
+    height: 35px;
+}
+#registroPacienteAP label{
+    color: black;
+    font-size: 14px;
+    height: 35;
+    align-content: center;
+    padding-top: 50%;
+}
+
