@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./pMedico.xhtml">
+
+            <ui:define name="contenido">
+                <br/><br/>
+                <div class="contenedorLista">
+    
+                    <div id="contTituloLista">
+                        <h5>Lista de pacientes</h5>
+                    </div>    
+                <br/><br/>
+                <div class="row" id="conTablaLista">  
+                <br/><br/>
+                <!--SECCION DE LOS BUSCADORES-->
+                <div id="buscadorNombre" class="col s4"> 
+                    <input type="text" class="col s3 center-align" id="buscarNombre" placeholder="Ingrese nombre" onkeyup=""/>
+                    <i class="Small material-icons col s1 left-align">search</i> 
+                </div>
+        
+                <div id="buscadorFecha" class="col s3 right-align offset-s5">   
+                    <input type="date" class="col s3 center-align mt-4 form-control" id="buscarFecha" onclick="" placeholder="dd/mm/aa"/>
+                </div>
+                <br/><br/><br/>
+
+                <!--SECCION DE LA TABLA DE PACIENTES-->
+                <table class="centered" id="tPacientes">
+                    <thead>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Nombre</th>
+                            <th>Apellido paterno</th>
+                            <th>Genero</th>
+                            <th>Fecha registros</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr>
+                            <td>11228284</td>
+                            <td>Genaro</td>
+                            <td>Ramírez</td>
+                            <td>M</td>
+                            <td>18/10/2021</td>
+                            <td><a href="datosPaciente.php"><input type="button" value="Editar" id="btnEditar"/></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/><br/>
+                </div>
+            </div>
+                <br/><br/>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

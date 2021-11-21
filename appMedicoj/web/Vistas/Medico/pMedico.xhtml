@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="././././css/medico.css"/>
+        <h:outputStylesheet name="././././css/materialize.css"/>
+        <h:outputStylesheet name="././././css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        
+        <header class="row">
+            <!--En esta sección va el logo-->
+            <div class="logo">
+                <h:panelGroup class="circle">
+                </h:panelGroup>
+            </div>
+        </header>
+        <br/><br/>
+        <div class="menuContenedor">
+            <ul> <br/>
+                <label style="color:white;  font-size: 14px;">Usuario</label>
+                <li><h:link outcome="./listaPacientes.xhtml">Lista pacientes</h:link></li>
+                <li><h:link outcome="./registrarPaciente.xhtml">Registrar paciente</h:link></li>
+                <li><h:link outcome="./acercaDe.xhtml">Acerca de</h:link></li>
+            </ul>
+        </div>
+                <br/>  
+        <div id="contenido" class="contenido">
+            <ui:insert name="contenido"></ui:insert>
+        </div>
+
+        <div class="footer">
+            <div>
+                <div>
+                © 2021 appMedica, todos los derechos reservados
+                </div>
+            </div>
+        </div> 
+
+    </h:body>
+
+</html>
