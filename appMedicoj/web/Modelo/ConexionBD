@@ -1,0 +1,41 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Modelo;
+
+import java.sql.*;
+
+/**
+ *
+ * @author Erick
+ */
+public class ConexionBD {
+    String usuario = "root";
+    String clave = "";
+    String url = "jdbc:mysql://localhost:3306/appmedico";
+    Connection con;
+    Statement stmt;
+    ResultSet Resultado;
+    
+    ConexionBD()
+    {
+        
+    }
+    
+    public Connection conector() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // Nos conectamos a la bd
+            con = DriverManager.getConnection(url, usuario, clave);
+            stmt = con.createStatement();
+            System.out.println("Entro");
+return con;
+        } // Si la conexion NO fue exitosa mostramos un mensaje de error
+        catch (ClassNotFoundException | SQLException e) {
+            //jLabel1.setText("Error de conexion" + e);
+            System.out.println("Error de conexion");
+        }
+      return null;  
+    }
+}
